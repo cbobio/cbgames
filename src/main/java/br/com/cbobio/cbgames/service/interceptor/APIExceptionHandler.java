@@ -1,7 +1,6 @@
 package br.com.cbobio.cbgames.service.interceptor;
 import br.com.cbobio.cbgames.service.exceptions.AcessoNegadoException;
 import br.com.cbobio.cbgames.service.exceptions.EntidadeNaoLocalizadaException;
-import org.hibernate.exception.ConstraintViolationException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.MessageSource;
 import org.springframework.context.i18n.LocaleContextHolder;
