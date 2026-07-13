@@ -1,5 +1,5 @@
 package br.com.cbobio.cbgames.persistence.entity;
-import br.com.cbobio.cbgames.machine.enums.AcaoLog;
+import br.com.cbobio.cbgames.enums.AcaoLog;
 import jakarta.persistence.*;
 import lombok.*;
 import java.time.LocalDateTime;

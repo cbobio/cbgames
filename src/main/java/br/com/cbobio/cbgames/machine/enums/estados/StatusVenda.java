@@ -1,11 +1,15 @@
 package br.com.cbobio.cbgames.machine.enums.estados;
 public enum StatusVenda {
 
-    RASCUNHO,
+    NOVO,
 
-    PENDENTE,
+    VALIDADO,
 
-    CONCLUIDA,
+    PAGO,
 
-    CANCELADA
+    ENTREGUE,
+
+    COMPLETADO,
+
+    CANCELADO
 }
