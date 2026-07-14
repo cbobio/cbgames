@@ -1,8 +1,12 @@
 package br.com.cbobio.cbgames.machine.config;
 
-import br.com.cbobio.cbgames.machine.action.ValidacaoPagamentoAction;
+import br.com.cbobio.cbgames.machine.action.*;
 import br.com.cbobio.cbgames.machine.enums.estados.StatusVenda;
 import br.com.cbobio.cbgames.machine.enums.eventos.EventoVenda;
+import br.com.cbobio.cbgames.machine.guard.CancelamentoGuard;
+import br.com.cbobio.cbgames.machine.guard.EstoqueGuard;
+import br.com.cbobio.cbgames.machine.guard.PagamentoGuard;
+import br.com.cbobio.cbgames.machine.guard.VendaValidaGuard;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.statemachine.config.EnableStateMachineFactory;
@@ -17,7 +21,16 @@ import java.util.EnumSet;
 public class StateMachineConfig extends EnumStateMachineConfigurerAdapter<StatusVenda, EventoVenda> {
 
 
-    private final ValidacaoPagamentoAction validacaoPagamentoAction;
+    private final ValidacaoVendaAction validacaoVendaAction;
+    private final PagamentoAction pagamentoAction;
+    private final EntregaAction entregaAction;
+    private final ConclusaoAction conclusaoAction;
+    private final CancelamentoAction cancelamentoAction;
+
+    private final VendaValidaGuard vendaValidaGuard;
+    private final PagamentoGuard pagamentoGuard;
+    private final EstoqueGuard estoqueGuard;
+    private final CancelamentoGuard cancelamentoGuard;
 
     @Override
     public void configure (StateMachineStateConfigurer<StatusVenda, EventoVenda> states) throws Exception{
@@ -36,7 +49,8 @@ public class StateMachineConfig extends EnumStateMachineConfigurerAdapter<Status
                 .source(StatusVenda.NOVO)
                 .target(StatusVenda.VALIDADO)
                 .event(EventoVenda.VALIDAR)
-                .action(null)
+                .guard(vendaValidaGuard)
+                .action(validacaoVendaAction)
 
                 .and()
 
@@ -44,7 +58,8 @@ public class StateMachineConfig extends EnumStateMachineConfigurerAdapter<Status
                 .source(StatusVenda.VALIDADO)
                 .target(StatusVenda.PAGO)
                 .event(EventoVenda.PAGAR)
-                .action(validacaoPagamentoAction)
+                .guard(pagamentoGuard)
+                .action(pagamentoAction)
 
                 .and()
 
@@ -52,7 +67,8 @@ public class StateMachineConfig extends EnumStateMachineConfigurerAdapter<Status
                 .source(StatusVenda.PAGO)
                 .target(StatusVenda.ENTREGUE)
                 .event(EventoVenda.ENVIAR)
-                .action(null)
+                .guard(estoqueGuard)
+                .action(entregaAction)
 
                 .and()
 
@@ -60,6 +76,7 @@ public class StateMachineConfig extends EnumStateMachineConfigurerAdapter<Status
                 .source(StatusVenda.ENTREGUE)
                 .target(StatusVenda.COMPLETADO)
                 .event(EventoVenda.COMPLETAR)
+                .action(conclusaoAction)
 
 
                 .and()
@@ -68,6 +85,8 @@ public class StateMachineConfig extends EnumStateMachineConfigurerAdapter<Status
                 .source(StatusVenda.VALIDADO)
                 .target(StatusVenda.CANCELADO)
                 .event(EventoVenda.CANCELAR)
+                .guard(cancelamentoGuard)
+                .action(cancelamentoAction)
 
                 .and()
 
@@ -75,6 +94,8 @@ public class StateMachineConfig extends EnumStateMachineConfigurerAdapter<Status
                 .source(StatusVenda.PAGO)
                 .target(StatusVenda.CANCELADO)
                 .event(EventoVenda.CANCELAR)
+                .guard(cancelamentoGuard)
+                .action(cancelamentoAction)
 
                 .and()
 
@@ -82,13 +103,17 @@ public class StateMachineConfig extends EnumStateMachineConfigurerAdapter<Status
                 .source(StatusVenda.NOVO)
                 .target(StatusVenda.CANCELADO)
                 .event(EventoVenda.CANCELAR)
+                .guard(cancelamentoGuard)
+                .action(cancelamentoAction)
 
                 .and()
 
                 .withExternal()
                 .source(StatusVenda.ENTREGUE)
                 .target(StatusVenda.CANCELADO)
-                .event(EventoVenda.CANCELAR);
+                .event(EventoVenda.CANCELAR)
+                .guard(cancelamentoGuard)
+                .action(cancelamentoAction);
     }
 
 }

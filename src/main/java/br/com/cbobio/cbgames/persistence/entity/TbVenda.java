@@ -45,6 +45,9 @@ public class TbVenda extends BaseAudit {
     @Column(name = "data_cancelamento")
     private LocalDateTime dataCancelamento;
 
+    @Column(name = "data_pagamento")
+    private LocalDateTime dataPagamento;
+
     @Builder.Default
     @OneToMany(mappedBy = "venda", cascade = CascadeType.ALL, orphanRemoval = true)
     private Set<TbVendaItem> itens = new HashSet<>();
