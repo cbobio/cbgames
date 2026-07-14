@@ -1,4 +1,4 @@
-package br.com.cbobio.cbgames.web.controller.dto.request;
+package br.com.cbobio.cbgames.web.controller.dto.response.endereco;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -11,7 +11,7 @@ import lombok.Setter;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class EnderecoRequestDto {
+public class EnderecoResponseDto {
 
     private String logradouro;
 

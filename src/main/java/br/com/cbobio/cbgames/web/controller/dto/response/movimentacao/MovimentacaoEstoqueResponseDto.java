@@ -1,4 +1,4 @@
-package br.com.cbobio.cbgames.web.controller.dto.response;
+package br.com.cbobio.cbgames.web.controller.dto.response.movimentacao;
 
 
 import br.com.cbobio.cbgames.enums.TipoMovimentacaoEstoque;

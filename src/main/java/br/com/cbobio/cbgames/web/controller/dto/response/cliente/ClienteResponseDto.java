@@ -1,5 +1,6 @@
-package br.com.cbobio.cbgames.web.controller.dto.response;
+package br.com.cbobio.cbgames.web.controller.dto.response.cliente;
 
+import br.com.cbobio.cbgames.web.controller.dto.response.endereco.EnderecoResponseDto;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;

@@ -1,6 +1,5 @@
-package br.com.cbobio.cbgames.web.controller.dto.request;
+package br.com.cbobio.cbgames.web.controller.dto.response.jogo;
 
-import jakarta.validation.constraints.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
@@ -14,10 +13,10 @@ import java.math.BigDecimal;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class JogoRequestDto {
+public class JogoResponseDto {
 
-    @NotBlank
-    @Size(max = 100)
+    private Long id;
+
     private String nomeJogo;
 
     private String generoJogo;
@@ -28,17 +27,10 @@ public class JogoRequestDto {
 
     private Integer anoLancamento;
 
-
-    @NotNull
-    @Positive
     private BigDecimal preco;
 
-    @NotNull
-    @PositiveOrZero
     private Integer quantidadeEstoque;
 
-    @NotNull
-    @PositiveOrZero
     private Integer estoqueMinimo;
 
 }

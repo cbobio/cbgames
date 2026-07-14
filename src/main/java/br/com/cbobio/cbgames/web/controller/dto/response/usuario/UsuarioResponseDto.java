@@ -1,4 +1,4 @@
-package br.com.cbobio.cbgames.web.controller.dto.response;
+package br.com.cbobio.cbgames.web.controller.dto.response.usuario;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;

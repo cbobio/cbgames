@@ -1,6 +1,9 @@
-package br.com.cbobio.cbgames.web.controller.dto.response;
+package br.com.cbobio.cbgames.web.controller.dto.response.venda;
 
 import br.com.cbobio.cbgames.machine.enums.estados.StatusVenda;
+import br.com.cbobio.cbgames.web.controller.dto.response.cliente.ClienteResponseDto;
+import br.com.cbobio.cbgames.web.controller.dto.response.usuario.UsuarioResponseDto;
+import br.com.cbobio.cbgames.web.controller.dto.response.vendaitem.VendaItemResponseDto;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;

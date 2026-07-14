@@ -1,4 +1,4 @@
-package br.com.cbobio.cbgames.web.controller.dto.response;
+package br.com.cbobio.cbgames.web.controller.dto.response.log;
 
 
 import br.com.cbobio.cbgames.enums.AcaoLog;

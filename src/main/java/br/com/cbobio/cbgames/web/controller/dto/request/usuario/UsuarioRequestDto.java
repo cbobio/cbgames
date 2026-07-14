@@ -1,4 +1,4 @@
-package br.com.cbobio.cbgames.web.controller.dto.request;
+package br.com.cbobio.cbgames.web.controller.dto.request.usuario;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;

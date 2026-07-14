@@ -6,7 +6,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.List;
 
-public interface TbVendaRepository extends JpaRepository<TbVenda, Long> {
+public interface VendaRepository extends JpaRepository<TbVenda, Long> {
 
     List<TbVenda> findByStatusVenda(StatusVenda statusVenda);
 

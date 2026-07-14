@@ -7,10 +7,12 @@ import br.com.cbobio.cbgames.machine.guard.CancelamentoGuard;
 import br.com.cbobio.cbgames.machine.guard.EstoqueGuard;
 import br.com.cbobio.cbgames.machine.guard.PagamentoGuard;
 import br.com.cbobio.cbgames.machine.guard.VendaValidaGuard;
+import br.com.cbobio.cbgames.machine.listener.VendaStateMachineListener;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.statemachine.config.EnableStateMachineFactory;
 import org.springframework.statemachine.config.EnumStateMachineConfigurerAdapter;
+import org.springframework.statemachine.config.builders.StateMachineConfigurationConfigurer;
 import org.springframework.statemachine.config.builders.StateMachineStateConfigurer;
 import org.springframework.statemachine.config.builders.StateMachineTransitionConfigurer;
 
@@ -31,6 +33,17 @@ public class StateMachineConfig extends EnumStateMachineConfigurerAdapter<Status
     private final PagamentoGuard pagamentoGuard;
     private final EstoqueGuard estoqueGuard;
     private final CancelamentoGuard cancelamentoGuard;
+
+    private final VendaStateMachineListener vendaStateMachineListener;
+
+    @Override
+    public void configure(StateMachineConfigurationConfigurer<StatusVenda, EventoVenda> config)
+            throws Exception {
+
+        config
+                .withConfiguration()
+                .listener(vendaStateMachineListener);
+    }
 
     @Override
     public void configure (StateMachineStateConfigurer<StatusVenda, EventoVenda> states) throws Exception{

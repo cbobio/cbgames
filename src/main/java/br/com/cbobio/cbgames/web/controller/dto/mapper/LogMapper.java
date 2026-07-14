@@ -1,7 +1,7 @@
 package br.com.cbobio.cbgames.web.controller.dto.mapper;
 
 import br.com.cbobio.cbgames.persistence.entity.TbLog;
-import br.com.cbobio.cbgames.web.controller.dto.response.LogResponseDto;
+import br.com.cbobio.cbgames.web.controller.dto.response.log.LogResponseDto;
 import org.mapstruct.Mapper;
 
 import java.util.List;
