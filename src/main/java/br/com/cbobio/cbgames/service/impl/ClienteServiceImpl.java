@@ -38,11 +38,13 @@ public class ClienteServiceImpl implements ClienteService {
 
     @Override
     public List<TbCliente> listar() {
+
         return clienteRepository.findAll();
     }
 
     @Override
     public void excluir(Long id) {
+
         clienteRepository.deleteById(id);
     }
 }
