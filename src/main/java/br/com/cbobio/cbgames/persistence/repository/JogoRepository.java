@@ -7,10 +7,4 @@ import java.util.List;
 
 public interface JogoRepository extends JpaRepository<TbJogo, Long> {
 
-    List<TbJogo> findByNomeJogoContainingIgnoreCase(String nomeJogo);
-
-    List<TbJogo> findByPlataformaJogoIgnoreCase(String plataformaJogo);
-
-    List<TbJogo> findByQuantidadeEstoqueLessThanEqual(Integer estoqueMinimo);
-
 }
