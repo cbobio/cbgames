@@ -1,4 +1,4 @@
-package br.com.cbobio.cbgames.machine.enums;
+package br.com.cbobio.cbgames.enums;
 public enum TipoMovimentacaoEstoque {
 
     ENTRADA,

@@ -1,5 +1,5 @@
 package br.com.cbobio.cbgames.persistence.entity;
-import br.com.cbobio.cbgames.machine.enums.TipoMovimentacaoEstoque;
+import br.com.cbobio.cbgames.enums.TipoMovimentacaoEstoque;
 import jakarta.persistence.*;
 import lombok.*;
 import java.time.LocalDateTime;
