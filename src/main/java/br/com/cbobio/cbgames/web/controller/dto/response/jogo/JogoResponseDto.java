@@ -7,6 +7,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.math.BigDecimal;
+import java.time.LocalDateTime;
 
 @Getter
 @Setter
@@ -16,21 +17,14 @@ import java.math.BigDecimal;
 public class JogoResponseDto {
 
     private Long id;
-
     private String nomeJogo;
-
     private String generoJogo;
-
     private String plataformaJogo;
-
     private String desenvolvedora;
-
     private Integer anoLancamento;
-
     private BigDecimal preco;
-
     private Integer quantidadeEstoque;
-
     private Integer estoqueMinimo;
-
+    private LocalDateTime createdAt;
+    private LocalDateTime updatedAt;
 }

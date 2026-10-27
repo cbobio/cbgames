@@ -1,4 +1,5 @@
 package br.com.cbobio.cbgames.persistence.entity;
+
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -13,6 +14,7 @@ import java.util.Set;
 @Entity
 @Table(name = "tb_cliente")
 public class TbCliente extends BaseAudit {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;

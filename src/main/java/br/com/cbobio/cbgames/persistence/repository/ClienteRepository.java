@@ -7,4 +7,12 @@ import java.util.Optional;
 
 public interface ClienteRepository extends JpaRepository<TbCliente, Long> {
 
+    Optional<TbCliente> findByEmailCliente(String emailCliente);
+
+    Optional<TbCliente> findByCpfCliente(String cpfCliente);
+
+    boolean existsByEmailCliente(String emailCliente);
+
+    boolean existsByCpfCliente(String cpfCliente);
+
 }

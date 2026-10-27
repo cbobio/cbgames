@@ -9,4 +9,11 @@ import java.util.List;
 public interface LogRepository extends JpaRepository<TbLog, Long> {
 
 
+    List<TbLog> findByUsuarioId(Long usuarioId);
+
+    List<TbLog> findByVendaId(Long vendaId);
+
+    List<TbLog> findByAcaoLog(AcaoLog acaoLog);
+
+
 }

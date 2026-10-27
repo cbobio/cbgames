@@ -1,7 +1,7 @@
 package br.com.cbobio.cbgames.service.interceptor;
 
 /*
- * Copyright (c) 2025, Atacadão S.A. and/or its affiliates. All rights reserved.
+ * Copyright (c) 2026, Cbobio S.A. and/or its affiliates. All rights reserved.
  */
 
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -31,7 +31,7 @@ public class APIResponseAdvice implements ResponseBodyAdvice<Object> {
 			return body;
 		}
 
-		if (!MediaType.APPLICATION_JSON.equals(selectedContentType)) {
+		if (!MediaType.APPLICATION_JSON.isCompatibleWith(selectedContentType)) {
 			return body;
 		}
 

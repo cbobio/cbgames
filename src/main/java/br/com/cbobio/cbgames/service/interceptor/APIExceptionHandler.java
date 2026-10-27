@@ -1,6 +1,9 @@
 package br.com.cbobio.cbgames.service.interceptor;
-import br.com.cbobio.cbgames.service.exceptions.AcessoNegadoException;
-import br.com.cbobio.cbgames.service.exceptions.EntidadeNaoLocalizadaException;
+/*
+ * Copyright (c) 2026, Cbobio S.A. and/or its affiliates. All rights reserved.
+ */
+
+import br.com.cbobio.cbgames.service.exceptions.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.MessageSource;
 import org.springframework.context.i18n.LocaleContextHolder;
@@ -42,9 +45,15 @@ public class APIExceptionHandler {
     }
 
     @ExceptionHandler(AcessoNegadoException.class)
-    public ResponseEntity<Object> handleNotFound(AcessoNegadoException ex, WebRequest request) {
-        DefaultAPIResponse<Object> errorResponse = DefaultAPIResponse.error(ex.getMessage());
-        return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(errorResponse);
+    public ResponseEntity<Object> handleAcessoNegado(
+            AcessoNegadoException ex) {
+
+        DefaultAPIResponse<Object> errorResponse =
+                DefaultAPIResponse.error(ex.getMessage());
+
+        return ResponseEntity
+                .status(HttpStatus.FORBIDDEN)
+                .body(errorResponse);
     }
 
     @ExceptionHandler(EntidadeNaoLocalizadaException.class)
@@ -79,6 +88,53 @@ public class APIExceptionHandler {
         DefaultAPIResponse<Object> errorResponse = DefaultAPIResponse.error(errorMsg.toString());
         return ResponseEntity
                 .status(HttpStatus.BAD_REQUEST)
+                .body(errorResponse);
+    }
+    @ExceptionHandler(UsuarioNaoEncontradoException.class)
+    public ResponseEntity<Object> handleUsuarioNaoEncontrado(
+            UsuarioNaoEncontradoException ex) {
+
+        DefaultAPIResponse<Object> errorResponse =
+                DefaultAPIResponse.error(ex.getMessage());
+
+        return ResponseEntity
+                .status(HttpStatus.NOT_FOUND)
+                .body(errorResponse);
+    }
+
+    @ExceptionHandler(IllegalArgumentException.class)
+    public ResponseEntity<Object> handleIllegalArgument(
+            IllegalArgumentException ex) {
+
+        DefaultAPIResponse<Object> errorResponse =
+                DefaultAPIResponse.error(ex.getMessage());
+
+        return ResponseEntity
+                .status(HttpStatus.BAD_REQUEST)
+                .body(errorResponse);
+    }
+
+    @ExceptionHandler(ClienteNaoEncontradoException.class)
+    public ResponseEntity<Object> handleClienteNaoEncontrado(
+            ClienteNaoEncontradoException ex) {
+
+        DefaultAPIResponse<Object> errorResponse =
+                DefaultAPIResponse.error(ex.getMessage());
+
+        return ResponseEntity
+                .status(HttpStatus.NOT_FOUND)
+                .body(errorResponse);
+    }
+
+    @ExceptionHandler(JogoNaoEncontradoException.class)
+    public ResponseEntity<Object> handleJogoNaoEncontrado(
+            JogoNaoEncontradoException ex) {
+
+        DefaultAPIResponse<Object> errorResponse =
+                DefaultAPIResponse.error(ex.getMessage());
+
+        return ResponseEntity
+                .status(HttpStatus.NOT_FOUND)
                 .body(errorResponse);
     }
 }

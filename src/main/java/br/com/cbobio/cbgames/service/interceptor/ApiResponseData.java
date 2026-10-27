@@ -1,8 +1,9 @@
 package br.com.cbobio.cbgames.service.interceptor;
 
 /*
- * Copyright (c) 2025, Atacadão S.A. and/or its affiliates. All rights reserved.
+ * Copyright (c) 2026, Cbobio S.A. and/or its affiliates. All rights reserved.
  */
+
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

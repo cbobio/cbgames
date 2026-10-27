@@ -8,4 +8,13 @@ import java.util.List;
 
 public interface MovimentacaoEstoqueRepository extends JpaRepository<TbMovimentacaoEstoque, Long> {
 
+
+    List<TbMovimentacaoEstoque> findByJogoId(Long jogoId);
+
+    List<TbMovimentacaoEstoque> findByUsuarioId(Long usuarioId);
+
+    List<TbMovimentacaoEstoque> findByTipoMovimentacao(
+            TipoMovimentacaoEstoque tipoMovimentacao
+    );
+
 }

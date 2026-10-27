@@ -7,6 +7,8 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.time.LocalDateTime;
+
 @Getter
 @Setter
 @Builder
@@ -26,4 +28,9 @@ public class ClienteResponseDto {
 
     private EnderecoResponseDto endereco;
 
+    private Long usuarioId;
+
+    private LocalDateTime createdAt;
+
+    private LocalDateTime updatedAt;
 }

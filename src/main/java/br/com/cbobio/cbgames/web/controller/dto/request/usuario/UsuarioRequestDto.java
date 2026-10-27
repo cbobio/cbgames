@@ -8,6 +8,8 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.time.LocalDateTime;
+
 @Getter
 @Setter
 @Builder
@@ -31,5 +33,7 @@ public class UsuarioRequestDto {
     @NotBlank(message = "A senha é obrigatória.")
     @Size(min = 6, max = 255)
     private String senhaUsuario;
+
+
 
 }

@@ -4,6 +4,7 @@ import br.com.cbobio.cbgames.persistence.entity.TbUsuario;
 import br.com.cbobio.cbgames.web.controller.dto.request.usuario.UsuarioRequestDto;
 import br.com.cbobio.cbgames.web.controller.dto.response.usuario.UsuarioResponseDto;
 import org.mapstruct.Mapper;
+import org.mapstruct.Mapping;
 
 import java.util.List;
 
@@ -12,8 +13,9 @@ public interface UsuarioMapper {
 
     TbUsuario toEntity(UsuarioRequestDto dto);
 
+    @Mapping(target = "createdAt", source = "createdAt")
+    @Mapping(target = "updatedAt", source = "updatedAt")
     UsuarioResponseDto toResponseDto(TbUsuario entity);
 
     List<UsuarioResponseDto> toResponseDtoList(List<TbUsuario> entities);
-
 }
